@@ -22,7 +22,7 @@ class DownloadTests: XCTestCase {
     }
     
     func testDownload() {
-        let filePath = "http://www.tutorialspoint.com/swift/swift_tutorial.pdf"
+        let filePath = "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg"
         
         sut.download(filePath) { response in
             XCTAssertNil(response.data)
@@ -36,7 +36,7 @@ class DownloadTests: XCTestCase {
     }
     
     func testFileRequestForDownload() {
-        let filePath = "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg?download"
+        let filePath = "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg"
         let progress: ProgressClosure = { bytesWritten, totalBytesWritten, totalBytesExpectedToWrite in
             let percentage = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite) * 100
             print("Downloading file \(String(format: "%.2f", percentage))%")
@@ -55,7 +55,7 @@ class DownloadTests: XCTestCase {
     }
     
     func testRequestGroupForDownload() {
-        let filePath = "http://www.tutorialspoint.com/swift/swift_tutorial.pdf"
+        let filePath = "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg"
         let progress: ProgressClosure = { bytesWritten, totalBytesWritten, totalBytesExpectedToWrite in
             let percentage = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite) * 100
             print("Downloading file 1 \(String(format: "%.2f", percentage))%")
